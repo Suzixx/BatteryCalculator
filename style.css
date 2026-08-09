@@ -1,0 +1,439 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0f14;
+    color: #f1f5f9;
+    min-height: 100vh;
+}
+
+.container {
+    width: min(1100px, 92%);
+    margin: 0 auto;
+}
+
+.github-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 10px 0 20px;
+}
+
+.github-link a {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #111720;
+    border: 1px solid #27313d;
+    border-radius: 50%;
+
+    color: #8b98a8;
+
+    transition:
+        color 0.2s,
+        background 0.2s,
+        border-color 0.2s,
+        transform 0.2s;
+}
+
+.github-link a:hover {
+    color: #ffffff;
+    background: #181f29;
+    border-color: #3b4857;
+
+    transform: translateY(-2px);
+}
+
+.github-link svg {
+    width: 25px;
+    height: 25px;
+
+    fill: currentColor;
+}
+
+
+/* Language switcher */
+
+.language-switcher {
+    position: fixed;
+    right: 20px;
+    top: 80px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 4px;
+
+    background: #111720;
+    border: 1px solid #27313d;
+    border-radius: 10px;
+
+    z-index: 1000;
+}
+
+.language-button {
+    width: 42px;
+    height: 34px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: transparent;
+    color: #6f7c8b;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        color 0.2s;
+}
+
+.language-button:hover {
+    color: #f1f5f9;
+}
+
+.language-button.active {
+    background: #f1f5f9;
+    color: #0b0f14;
+}
+
+
+/* Header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 55px 0 35px;
+}
+
+.header h1 {
+    font-size: 42px;
+    letter-spacing: -1px;
+}
+
+.header p {
+    color: #8b98a8;
+    margin-top: 8px;
+    font-size: 17px;
+}
+
+.battery-icon {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 16px;
+
+    background: #161d26;
+    border: 1px solid #27313d;
+
+    font-size: 27px;
+}
+
+
+/* Sections */
+
+section {
+    background: #111720;
+    border: 1px solid #222c37;
+    border-radius: 18px;
+
+    padding: 30px;
+    margin-bottom: 24px;
+}
+
+section h2 {
+    font-size: 23px;
+    margin-bottom: 25px;
+}
+
+
+/* Inputs */
+
+.inputs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.input-group label {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 9px;
+
+    font-size: 14px;
+    color: #c4ccd6;
+}
+
+.input-group label > span:last-child {
+    color: #6f7c8b;
+}
+
+.input-group input {
+    width: 100%;
+
+    padding: 14px 15px;
+
+    background: #0c1117;
+    border: 1px solid #2a3542;
+    border-radius: 10px;
+
+    color: white;
+    font-size: 16px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s,
+        background 0.2s;
+}
+
+.input-group input:focus {
+    border-color: #6f7c8b;
+    background: #0f151c;
+}
+
+.input-group small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #687584;
+    font-size: 12px;
+}
+
+
+/* Calculate button */
+
+#calculate {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #f1f5f9;
+    color: #0b0f14;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s,
+        opacity 0.15s;
+}
+
+#calculate:hover {
+    opacity: 0.9;
+}
+
+#calculate:active {
+    transform: scale(0.99);
+}
+
+
+/* Error */
+
+.error {
+    min-height: 20px;
+
+    margin-top: 14px;
+
+    color: #ff7b7b;
+    font-size: 14px;
+}
+
+
+/* Results */
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.result-card {
+    min-height: 145px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 23px;
+
+    background: #0c1117;
+    border: 1px solid #222c37;
+    border-radius: 14px;
+}
+
+.result-card.highlight {
+    background: #151d26;
+    border-color: #34414f;
+}
+
+.result-label {
+    color: #8491a0;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.result-card strong {
+    font-size: 30px;
+    letter-spacing: -0.5px;
+}
+
+.result-unit {
+    margin-top: 4px;
+
+    color: #697686;
+    font-size: 13px;
+}
+
+
+/* Formulas */
+
+.formula {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #202934;
+}
+
+.formula:last-of-type {
+    border-bottom: none;
+}
+
+.formula span {
+    color: #aab5c2;
+}
+
+.formula code {
+    padding: 7px 11px;
+
+    background: #0a0f14;
+    border-radius: 7px;
+
+    color: #d9e1e8;
+
+    font-family: Consolas, monospace;
+}
+
+
+/* Warning */
+
+.warning {
+    margin-top: 20px;
+    padding: 15px;
+
+    background: #0c1117;
+    border-radius: 10px;
+
+    color: #7d8997;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* Footer */
+
+footer {
+    padding: 25px 0 40px;
+
+    color: #596574;
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+/* Tablet */
+
+@media (max-width: 800px) {
+
+    .header {
+        padding-top: 35px;
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+
+    .inputs,
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 22px;
+    }
+
+    .result-card {
+        min-height: 120px;
+    }
+
+}
+
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+    .container {
+        width: 94%;
+    }
+
+    .header {
+        align-items: flex-start;
+    }
+
+    .battery-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .header h1 {
+        font-size: 27px;
+    }
+
+    .header p {
+        font-size: 14px;
+    }
+
+    .language-switcher {
+        right: 10px;
+        top: 20px;
+    }
+
+    .language-button {
+        width: 38px;
+        height: 31px;
+    }
+
+}
+
