@@ -25,3 +25,13 @@ The calculator uses basic battery formulas to estimate the main characteristics 
 
 ```text
 Energy (Wh) = Voltage (V) × Capacity (Ah)
+```
+
+## Main Link
+
+The official website link to use: https://batterycalculator.vercel.app
+
+
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for details.
