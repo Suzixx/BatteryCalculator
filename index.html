@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +7,8 @@
     <title>Battery Calculator</title>
 
     <meta
-    name="description"
-    content="Free Li-ion battery calculator for calculating battery energy, cell capacity, voltage range and estimated runtime."
+        name="description"
+        content="Free Li-ion battery calculator for calculating battery energy, cell capacity, voltage range, maximum current and estimated runtime."
     >
 
     <link rel="stylesheet" href="style.css">
@@ -40,7 +40,6 @@
     <button id="lang-en" class="language-button">EN</button>
 </div>
 
-
 <div class="container">
 
     <header class="header">
@@ -54,19 +53,21 @@
         </div>
     </header>
 
-
     <main>
 
         <section class="calculator">
 
-            <h2 data-i18n="batteryParameters">Параметры батареи</h2>
+            <h2 data-i18n="batteryParameters">
+                Параметры батареи
+            </h2>
 
             <div class="inputs">
 
                 <div class="input-group">
-
                     <label for="voltage">
-                        <span data-i18n="nominalVoltage">Номинальное напряжение</span>
+                        <span data-i18n="nominalVoltage">
+                            Номинальное напряжение
+                        </span>
                         <span>V</span>
                     </label>
 
@@ -77,14 +78,13 @@
                         min="0"
                         step="0.1"
                     >
-
                 </div>
 
-
                 <div class="input-group">
-
                     <label for="capacity">
-                        <span data-i18n="batteryCapacity">Ёмкость батареи</span>
+                        <span data-i18n="batteryCapacity">
+                            Ёмкость батареи
+                        </span>
                         <span>Ah</span>
                     </label>
 
@@ -95,14 +95,13 @@
                         min="0"
                         step="0.1"
                     >
-
                 </div>
 
-
                 <div class="input-group">
-
                     <label for="battery-format">
-                        <span data-i18n="batteryFormat">Формат батареи</span>
+                        <span data-i18n="batteryFormat">
+                            Формат батареи
+                        </span>
                         <span>s / p</span>
                     </label>
 
@@ -116,11 +115,57 @@
                     <small data-i18n="formatExample">
                         Например: 14s8p, 13s6p, 20s10p
                     </small>
+                </div>
 
+                <div class="input-group">
+                    <label for="chemistry">
+                        <span data-i18n="cellChemistry">
+                            Химия ячейки
+                        </span>
+                    </label>
+
+                    <select id="chemistry">
+                        <option value="liion">Li-ion</option>
+                        <option value="lifepo4">LiFePO4</option>
+                        <option value="lipo">LiPo</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="cell-discharge">
+                        <span data-i18n="cellDischarge">
+                            Максимальный разряд ячейки
+                        </span>
+                        <span>A</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="cell-discharge"
+                        placeholder="20"
+                        min="0"
+                        step="0.1"
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label for="power">
+                        <span data-i18n="powerConsumption">
+                            Потребляемая мощность
+                        </span>
+                        <span>W</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="power"
+                        placeholder="1000"
+                        min="0"
+                        step="1"
+                    >
                 </div>
 
             </div>
-
 
             <button id="calculate" data-i18n="calculate">
                 Рассчитать
@@ -133,12 +178,13 @@
 
         <section class="results">
 
-            <h2 data-i18n="results">Результаты</h2>
+            <h2 data-i18n="results">
+                Результаты
+            </h2>
 
             <div class="result-grid">
 
                 <div class="result-card highlight">
-
                     <span class="result-label" data-i18n="batteryEnergy">
                         Энергия батареи
                     </span>
@@ -146,12 +192,10 @@
                     <strong id="energy">—</strong>
 
                     <span class="result-unit">Wh</span>
-
                 </div>
 
 
                 <div class="result-card">
-
                     <span class="result-label" data-i18n="cellCapacity">
                         Ёмкость одной ячейки
                     </span>
@@ -159,12 +203,10 @@
                     <strong id="cell-capacity">—</strong>
 
                     <span class="result-unit">Ah</span>
-
                 </div>
 
 
                 <div class="result-card">
-
                     <span class="result-label" data-i18n="cellVoltage">
                         Напряжение одной ячейки
                     </span>
@@ -172,12 +214,10 @@
                     <strong id="cell-voltage">—</strong>
 
                     <span class="result-unit">V</span>
-
                 </div>
 
 
                 <div class="result-card">
-
                     <span class="result-label" data-i18n="minimumVoltage">
                         Минимальное напряжение
                     </span>
@@ -185,12 +225,10 @@
                     <strong id="min-voltage">—</strong>
 
                     <span class="result-unit">V</span>
-
                 </div>
 
 
                 <div class="result-card">
-
                     <span class="result-label" data-i18n="maximumVoltage">
                         Максимальное напряжение
                     </span>
@@ -198,14 +236,36 @@
                     <strong id="max-voltage">—</strong>
 
                     <span class="result-unit">V</span>
+                </div>
 
+
+                <div class="result-card">
+                    <span class="result-label" data-i18n="totalCells">
+                        Всего ячеек
+                    </span>
+
+                    <strong id="total-cells">—</strong>
+
+                    <span class="result-unit" data-i18n="cellsUnit">
+                        ячеек
+                    </span>
+                </div>
+
+
+                <div class="result-card">
+                    <span class="result-label" data-i18n="maxCurrent">
+                        Максимальная токоотдача
+                    </span>
+
+                    <strong id="max-current">—</strong>
+
+                    <span class="result-unit">A</span>
                 </div>
 
 
                 <div class="result-card highlight">
-
                     <span class="result-label" data-i18n="runtime">
-                        Работа при 1000 W
+                        Время работы
                     </span>
 
                     <strong id="runtime">—</strong>
@@ -213,11 +273,10 @@
                     <span
                         class="result-unit"
                         id="runtime-unit"
-                        data-i18n="at1000W"
+                        data-i18n="atPower"
                     >
                         при 1000 W
                     </span>
-
                 </div>
 
             </div>
@@ -231,97 +290,110 @@
                 Как это рассчитывается?
             </h2>
 
-
             <div class="formula">
-
                 <span data-i18n="energy">
                     Энергия
                 </span>
 
                 <code>Wh = V × Ah</code>
-
             </div>
 
 
             <div class="formula">
-
                 <span data-i18n="cellCapacityFormula">
                     Ёмкость одной ячейки
                 </span>
 
                 <code>Ah ÷ P</code>
-
             </div>
 
 
             <div class="formula">
+                <span data-i18n="totalCellsFormula">
+                    Количество ячеек
+                </span>
 
+                <code>S × P</code>
+            </div>
+
+
+            <div class="formula">
+                <span data-i18n="maxCurrentFormula">
+                    Максимальный ток
+                </span>
+
+                <code>A × P</code>
+            </div>
+
+
+            <div class="formula">
                 <span data-i18n="minimumVoltageFormula">
                     Минимальное напряжение
                 </span>
 
-                <code>S × 3.0 V</code>
-
+                <code>S × Vmin</code>
             </div>
 
 
             <div class="formula">
-
                 <span data-i18n="maximumVoltageFormula">
                     Максимальное напряжение
                 </span>
 
-                <code>S × 4.2 V</code>
-
+                <code>S × Vmax</code>
             </div>
 
 
             <div class="formula">
-
                 <span data-i18n="runtimeFormula">
                     Время работы
                 </span>
 
-                <code>Wh ÷ 1000 W</code>
-
+                <code>Wh ÷ W</code>
             </div>
 
 
             <p class="warning" data-i18n="warning">
-                Расчёт минимального и максимального напряжения выполнен
-                для стандартных Li-ion ячеек с диапазоном 3.0–4.2 V.
-                Реальное время работы зависит от нагрузки, температуры,
-                просадки напряжения и других факторов.
+                Расчёты являются приблизительными. Реальные характеристики
+                батареи зависят от нагрузки, температуры, просадки напряжения,
+                состояния ячеек, BMS и других факторов.
             </p>
 
         </section>
 
     </main>
 
+
     <div class="github-link">
-    <a
-        href="https://github.com/Suzixx/BatteryCalculator/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="GitHub"
-    >
-        <svg
-            viewBox="0 0 24 24"
-            aria-hidden="true"
+
+        <a
+            href="https://github.com/Suzixx/BatteryCalculator/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
         >
-            <path
-                d="M12 2C6.48 2 2 6.58 2 12.22c0 4.51 2.87 8.33 6.84 9.68.5.1.68-.22.68-.48v-1.7c-2.78.62-3.37-1.2-3.37-1.2-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .08 1.53 1.06 1.53 1.06.9 1.59 2.36 1.13 2.94.86.09-.67.35-1.13.64-1.39-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.02-2.75-.1-.26-.44-1.3.1-2.71 0 0 .83-.27 2.75 1.05A9.2 9.2 0 0 1 12 7.13c.84 0 1.68.12 2.47.35 1.92-1.32 2.75-1.05 2.75-1.05.54 1.41.2 2.45.1 2.71.63.72 1.02 1.63 1.02 2.75 0 3.92-2.35 4.78-4.59 5.04.36.32.68.95.68 1.91v2.83c0 .27.18.59.69.48A10.23 10.23 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"
-            />
-        </svg>
-    </a>
-    </div>  
+
+            <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+            >
+
+                <path
+                    d="M12 2C6.48 2 2 6.58 2 12.22c0 4.51 2.87 8.33 6.84 9.68.5.1.68-.22.68-.48v-1.7c-2.78.62-3.37-1.2-3.37-1.2-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .08 1.53 1.06 1.53 1.06.9 1.59 2.36 1.13 2.94.86.09-.67.35-1.13.64-1.39-2.22-.26-4.56-1.14-4.56-5.05 0-1.12.39-2.03 1.02-2.75-.1-.26-.44-1.3.1-2.71 0 0 .83-.27 2.75 1.05A9.2 9.2 0 0 1 12 7.13c.84 0 1.68.12 2.47.35 1.92-1.32 2.75-1.05 2.75-1.05.54 1.41.2 2.45.1 2.71.63.72 1.02 1.63 1.02 2.75 0 3.92-2.35 4.78-4.59 5.04.36.32.68.95.68 1.91v2.83c0 .27.18.59.69.48A10.23 10.23 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"
+                />
+
+            </svg>
+
+        </a>
+
+    </div>
+
 
     <footer data-i18n="footer">
-        Battery Calculator · Made for learning
+        Battery Calculator · Версия 1.1.0b
     </footer>
 
 </div>
-
 
 <script src="script.js"></script>
 
