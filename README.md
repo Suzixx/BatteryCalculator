@@ -4,6 +4,10 @@ A lightweight and responsive web-based battery calculator for analyzing Li-ion b
 
 The calculator allows users to enter the battery voltage, capacity, and cell configuration and calculates several important battery characteristics.
 
+## Preview
+
+![Battery Calculator Preview](preview.png)
+
 ## Features
 
 - Battery energy calculation in Wh
