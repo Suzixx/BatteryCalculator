@@ -27,6 +27,9 @@ The calculator allows you to enter your battery parameters and quickly calculate
 - 📱 Responsive design for desktop and mobile devices
 - 📈 Vercel Analytics
 - ⚡ Vercel Speed Insights
+- 🔢Improved input validation for numeric fields
+- ⚠️Prevents invalid values from being entered into number inputs
+- ✅More user-friendly error handling
 
 ## 🧮 Calculations
 
