@@ -8,7 +8,7 @@
 
     <meta
         name="description"
-        content="Free Li-ion battery calculator for calculating battery energy, cell capacity, voltage range, maximum current and estimated runtime."
+        content="Battery calculator and battery pack designer for Li-ion, LiFePO4 and LiPo cells."
     >
 
     <link rel="stylesheet" href="style.css">
@@ -45,7 +45,10 @@
     <header class="header">
         <div>
             <h1 data-i18n="title">Battery Calculator</h1>
-            <p data-i18n="subtitle">Расчёт характеристик аккумуляторной батареи</p>
+
+            <p data-i18n="subtitle">
+                Расчёт и проектирование аккумуляторных батарей
+            </p>
         </div>
 
         <div class="battery-icon">
@@ -53,9 +56,36 @@
         </div>
     </header>
 
+
     <main>
 
-        <section class="calculator">
+        <div class="mode-switcher">
+
+            <button
+                id="calculator-mode"
+                class="mode-button active"
+                data-i18n="calculatorMode"
+            >
+                Battery Calculator
+            </button>
+
+            <button
+                id="designer-mode"
+                class="mode-button"
+                data-i18n="designerMode"
+            >
+                Battery Pack Designer
+            </button>
+
+        </div>
+
+
+        <!-- CALCULATOR -->
+
+        <section
+            class="calculator mode-section"
+            id="calculator-section"
+        >
 
             <h2 data-i18n="batteryParameters">
                 Параметры батареи
@@ -80,6 +110,7 @@
                     >
                 </div>
 
+
                 <div class="input-group">
                     <label for="capacity">
                         <span data-i18n="batteryCapacity">
@@ -96,6 +127,7 @@
                         step="0.1"
                     >
                 </div>
+
 
                 <div class="input-group">
                     <label for="battery-format">
@@ -117,6 +149,7 @@
                     </small>
                 </div>
 
+
                 <div class="input-group">
                     <label for="chemistry">
                         <span data-i18n="cellChemistry">
@@ -130,6 +163,7 @@
                         <option value="lipo">LiPo</option>
                     </select>
                 </div>
+
 
                 <div class="input-group">
                     <label for="cell-discharge">
@@ -147,6 +181,7 @@
                         step="0.1"
                     >
                 </div>
+
 
                 <div class="input-group">
                     <label for="power">
@@ -167,7 +202,11 @@
 
             </div>
 
-            <button id="calculate" data-i18n="calculate">
+
+            <button
+                id="calculate"
+                data-i18n="calculate"
+            >
                 Рассчитать
             </button>
 
@@ -176,7 +215,303 @@
         </section>
 
 
-        <section class="results">
+        <!-- DESIGNER -->
+
+        <section
+            class="designer mode-section hidden"
+            id="designer-section"
+        >
+
+            <h2 data-i18n="designerParameters">
+                Параметры проектируемой батареи
+            </h2>
+
+
+            <div class="designer-description">
+                <p data-i18n="designerDescription">
+                    Укажите характеристики одной ячейки и желаемые
+                    характеристики батареи. Калькулятор подберёт
+                    подходящую конфигурацию S/P.
+                </p>
+            </div>
+
+
+            <div class="inputs">
+
+                <div class="input-group">
+                    <label for="designer-chemistry">
+                        <span data-i18n="cellChemistry">
+                            Химия ячейки
+                        </span>
+                    </label>
+
+                    <select id="designer-chemistry">
+                        <option value="liion">Li-ion</option>
+                        <option value="lifepo4">LiFePO4</option>
+                        <option value="lipo">LiPo</option>
+                    </select>
+                </div>
+
+
+                <div class="input-group">
+                    <label for="designer-cell-voltage">
+                        <span data-i18n="cellNominalVoltage">
+                            Номинальное напряжение ячейки
+                        </span>
+                        <span>V</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="designer-cell-voltage"
+                        placeholder="3.7"
+                        min="0"
+                        step="0.01"
+                    >
+                </div>
+
+
+                <div class="input-group">
+                    <label for="designer-cell-capacity">
+                        <span data-i18n="cellCapacityInput">
+                            Ёмкость одной ячейки
+                        </span>
+                        <span>Ah</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="designer-cell-capacity"
+                        placeholder="5"
+                        min="0"
+                        step="0.01"
+                    >
+                </div>
+
+
+                <div class="input-group">
+                    <label for="designer-cell-current">
+                        <span data-i18n="cellMaxCurrent">
+                            Максимальный ток ячейки
+                        </span>
+                        <span>A</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="designer-cell-current"
+                        placeholder="20"
+                        min="0"
+                        step="0.1"
+                    >
+                </div>
+
+
+                <div class="input-group">
+                    <label for="designer-voltage">
+                        <span data-i18n="targetVoltage">
+                            Желаемое напряжение батареи
+                        </span>
+                        <span>V</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="designer-voltage"
+                        placeholder="52"
+                        min="0"
+                        step="0.1"
+                    >
+                </div>
+
+
+                <div class="input-group">
+                    <label for="designer-capacity">
+                        <span data-i18n="targetCapacity">
+                            Желаемая ёмкость батареи
+                        </span>
+                        <span>Ah</span>
+                    </label>
+
+                    <input
+                        type="number"
+                        id="designer-capacity"
+                        placeholder="30"
+                        min="0"
+                        step="0.1"
+                    >
+                </div>
+
+            </div>
+
+
+            <button
+                id="design"
+                data-i18n="designBattery"
+            >
+                Подобрать батарею
+            </button>
+
+
+            <div id="designer-error" class="error"></div>
+
+
+            <div
+                id="designer-results"
+                class="designer-results hidden"
+            >
+
+                <h3 data-i18n="recommendedConfiguration">
+                    Рекомендуемая конфигурация
+                </h3>
+
+
+                <div class="configuration-result">
+                    <strong id="recommended-format">—</strong>
+                </div>
+
+
+                <div class="result-grid">
+
+                    <div class="result-card highlight">
+                        <span
+                            class="result-label"
+                            data-i18n="designedVoltage"
+                        >
+                            Номинальное напряжение
+                        </span>
+
+                        <strong id="designed-voltage">—</strong>
+
+                        <span class="result-unit">V</span>
+                    </div>
+
+
+                    <div class="result-card">
+                        <span
+                            class="result-label"
+                            data-i18n="designedCapacity"
+                        >
+                            Ёмкость
+                        </span>
+
+                        <strong id="designed-capacity">—</strong>
+
+                        <span class="result-unit">Ah</span>
+                    </div>
+
+
+                    <div class="result-card">
+                        <span
+                            class="result-label"
+                            data-i18n="designedEnergy"
+                        >
+                            Энергия
+                        </span>
+
+                        <strong id="designed-energy">—</strong>
+
+                        <span class="result-unit">Wh</span>
+                    </div>
+
+
+                    <div class="result-card">
+                        <span
+                            class="result-label"
+                            data-i18n="designedCells"
+                        >
+                            Всего ячеек
+                        </span>
+
+                        <strong id="designed-cells">—</strong>
+
+                        <span
+                            class="result-unit"
+                            data-i18n="cellsUnit"
+                        >
+                            ячеек
+                        </span>
+                    </div>
+
+
+                    <div class="result-card">
+                        <span
+                            class="result-label"
+                            data-i18n="designedCurrent"
+                        >
+                            Максимальный ток
+                        </span>
+
+                        <strong id="designed-current">—</strong>
+
+                        <span class="result-unit">A</span>
+                    </div>
+
+
+                    <div class="result-card">
+                        <span
+                            class="result-label"
+                            data-i18n="designedPower"
+                        >
+                            Теоретическая максимальная мощность
+                        </span>
+
+                        <strong id="designed-power">—</strong>
+
+                        <span class="result-unit">W</span>
+                    </div>
+
+
+                    <div class="result-card">
+                        <span
+                            class="result-label"
+                            data-i18n="designedMinVoltage"
+                        >
+                            Минимальное напряжение
+                        </span>
+
+                        <strong id="designed-min-voltage">—</strong>
+
+                        <span class="result-unit">V</span>
+                    </div>
+
+
+                    <div class="result-card">
+                        <span
+                            class="result-label"
+                            data-i18n="designedMaxVoltage"
+                        >
+                            Максимальное напряжение
+                        </span>
+
+                        <strong id="designed-max-voltage">—</strong>
+
+                        <span class="result-unit">V</span>
+                    </div>
+
+                </div>
+
+
+                <div class="designer-note">
+                    <span data-i18n="designerNote">
+                        Конфигурация подбирается так, чтобы фактическая
+                        ёмкость была не меньше заданной. Напряжение
+                        выбирается по ближайшему целому количеству
+                        последовательных ячеек.
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CURRENT RESULTS -->
+
+        <section
+            class="results mode-section"
+            id="calculator-results"
+        >
 
             <h2 data-i18n="results">
                 Результаты
@@ -185,7 +520,10 @@
             <div class="result-grid">
 
                 <div class="result-card highlight">
-                    <span class="result-label" data-i18n="batteryEnergy">
+                    <span
+                        class="result-label"
+                        data-i18n="batteryEnergy"
+                    >
                         Энергия батареи
                     </span>
 
@@ -196,7 +534,10 @@
 
 
                 <div class="result-card">
-                    <span class="result-label" data-i18n="cellCapacity">
+                    <span
+                        class="result-label"
+                        data-i18n="cellCapacity"
+                    >
                         Ёмкость одной ячейки
                     </span>
 
@@ -207,7 +548,10 @@
 
 
                 <div class="result-card">
-                    <span class="result-label" data-i18n="cellVoltage">
+                    <span
+                        class="result-label"
+                        data-i18n="cellVoltage"
+                    >
                         Напряжение одной ячейки
                     </span>
 
@@ -218,7 +562,10 @@
 
 
                 <div class="result-card">
-                    <span class="result-label" data-i18n="minimumVoltage">
+                    <span
+                        class="result-label"
+                        data-i18n="minimumVoltage"
+                    >
                         Минимальное напряжение
                     </span>
 
@@ -229,7 +576,10 @@
 
 
                 <div class="result-card">
-                    <span class="result-label" data-i18n="maximumVoltage">
+                    <span
+                        class="result-label"
+                        data-i18n="maximumVoltage"
+                    >
                         Максимальное напряжение
                     </span>
 
@@ -240,20 +590,29 @@
 
 
                 <div class="result-card">
-                    <span class="result-label" data-i18n="totalCells">
+                    <span
+                        class="result-label"
+                        data-i18n="totalCells"
+                    >
                         Всего ячеек
                     </span>
 
                     <strong id="total-cells">—</strong>
 
-                    <span class="result-unit" data-i18n="cellsUnit">
+                    <span
+                        class="result-unit"
+                        data-i18n="cellsUnit"
+                    >
                         ячеек
                     </span>
                 </div>
 
 
                 <div class="result-card">
-                    <span class="result-label" data-i18n="maxCurrent">
+                    <span
+                        class="result-label"
+                        data-i18n="maxCurrent"
+                    >
                         Максимальная токоотдача
                     </span>
 
@@ -264,7 +623,10 @@
 
 
                 <div class="result-card highlight">
-                    <span class="result-label" data-i18n="runtime">
+                    <span
+                        class="result-label"
+                        data-i18n="runtime"
+                    >
                         Время работы
                     </span>
 
@@ -289,6 +651,7 @@
             <h2 data-i18n="howItWorks">
                 Как это рассчитывается?
             </h2>
+
 
             <div class="formula">
                 <span data-i18n="energy">
@@ -353,7 +716,19 @@
             </div>
 
 
-            <p class="warning" data-i18n="warning">
+            <div class="formula">
+                <span data-i18n="designerFormula">
+                    Подбор конфигурации
+                </span>
+
+                <code>S ≈ V ÷ Vcell</code>
+            </div>
+
+
+            <p
+                class="warning"
+                data-i18n="warning"
+            >
                 Расчёты являются приблизительными. Реальные характеристики
                 батареи зависят от нагрузки, температуры, просадки напряжения,
                 состояния ячеек, BMS и других факторов.
@@ -390,7 +765,7 @@
 
 
     <footer data-i18n="footer">
-        Battery Calculator · Версия 1.1.0b
+        Battery Calculator · Версия 1.2.0b
     </footer>
 
 </div>
