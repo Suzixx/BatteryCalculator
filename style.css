@@ -517,3 +517,180 @@ footer {
         flex-direction: column;
     }
 }
+
+body {
+    position: relative;
+    overflow-x: hidden;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(76, 111, 145, 0.08), transparent 28%),
+        radial-gradient(circle at 80% 80%, rgba(94, 76, 145, 0.07), transparent 30%),
+        #0b0f14;
+}
+
+.ambient-background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.ambient-circle {
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    filter: blur(1px);
+    opacity: 0.18;
+    will-change: transform;
+}
+
+.circle-1 {
+    width: 420px;
+    height: 420px;
+    left: -120px;
+    top: 8%;
+    background: radial-gradient(
+        circle,
+        rgba(90, 120, 155, 0.24) 0%,
+        rgba(90, 120, 155, 0.08) 45%,
+        transparent 72%
+    );
+    animation: ambientFloat1 18s ease-in-out infinite alternate;
+}
+
+.circle-2 {
+    width: 330px;
+    height: 330px;
+    right: -90px;
+    top: 22%;
+    background: radial-gradient(
+        circle,
+        rgba(125, 92, 155, 0.22) 0%,
+        rgba(125, 92, 155, 0.07) 48%,
+        transparent 72%
+    );
+    animation: ambientFloat2 23s ease-in-out infinite alternate;
+}
+
+.circle-3 {
+    width: 260px;
+    height: 260px;
+    left: 28%;
+    bottom: -100px;
+    background: radial-gradient(
+        circle,
+        rgba(70, 130, 125, 0.20) 0%,
+        rgba(70, 130, 125, 0.06) 48%,
+        transparent 72%
+    );
+    animation: ambientFloat3 20s ease-in-out infinite alternate;
+}
+
+.circle-4 {
+    width: 190px;
+    height: 190px;
+    right: 28%;
+    top: 8%;
+    background: radial-gradient(
+        circle,
+        rgba(180, 145, 90, 0.13) 0%,
+        transparent 70%
+    );
+    animation: ambientFloat4 16s ease-in-out infinite alternate;
+}
+
+.circle-5 {
+    width: 500px;
+    height: 500px;
+    right: 8%;
+    bottom: -300px;
+    background: radial-gradient(
+        circle,
+        rgba(65, 95, 130, 0.12) 0%,
+        transparent 70%
+    );
+    animation: ambientFloat5 27s ease-in-out infinite alternate;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes ambientFloat1 {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate3d(100px, 60px, 0) scale(1.12);
+    }
+}
+
+@keyframes ambientFloat2 {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate3d(-90px, 80px, 0) scale(0.9);
+    }
+}
+
+@keyframes ambientFloat3 {
+    0% {
+        transform: translate3d(0, 0, 0) scale(0.95);
+    }
+
+    100% {
+        transform: translate3d(-80px, -100px, 0) scale(1.15);
+    }
+}
+
+@keyframes ambientFloat4 {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(70px, 110px, 0);
+    }
+}
+
+@keyframes ambientFloat5 {
+    0% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    100% {
+        transform: translate3d(-120px, -80px, 0) scale(1.08);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ambient-circle {
+        animation: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .circle-1 {
+        width: 280px;
+        height: 280px;
+    }
+
+    .circle-2 {
+        width: 220px;
+        height: 220px;
+    }
+
+    .circle-3 {
+        width: 180px;
+        height: 180px;
+    }
+
+    .circle-5 {
+        width: 320px;
+        height: 320px;
+    }
+}
