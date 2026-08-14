@@ -479,7 +479,7 @@ const translations = {
             "Calculations are approximate. Actual battery performance depends on load, temperature, voltage sag, cell condition, BMS and other factors.",
 
         footer:
-            "Battery Calculator \u00b7 Version 1.3.0b",
+            "Battery Calculator \u00b7 Version 1.3.0",
 
         errorVoltage:
             "Enter a valid voltage.",
