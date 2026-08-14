@@ -92,6 +92,10 @@ const ruButton =
 const enButton =
     document.getElementById("lang-en");
 
+const itButton = document.getElementById("lang-it");
+
+const deButton = document.getElementById("lang-de");
+
 
 const chemistryData = {
 
@@ -513,6 +517,197 @@ const translations = {
         hour: "h",
 
         minute: "min"
+    },
+
+    
+    de: {
+        title: "Batterie-Rechner",
+        subtitle: "Berechnung und Auslegung von Batteriepacks",
+
+        calculatorMode: "Batterie-Rechner",
+        designerMode: "Batterie-Designer",
+
+        batteryParameters: "Batterieparameter",
+        designerParameters: "Parameter der geplanten Batterie",
+
+        designerDescription:
+            "Geben Sie die Eigenschaften einer einzelnen Zelle und die gewünschten Batterieparameter ein. Der Rechner ermittelt eine passende S/P-Konfiguration.",
+
+        nominalVoltage: "Nennspannung",
+        batteryCapacity: "Batteriekapazität",
+        batteryFormat: "Batteriekonfiguration",
+        cellChemistry: "Zellchemie",
+        cellDischarge: "Maximaler Entladestrom der Zelle",
+        powerConsumption: "Leistungsaufnahme",
+
+        formatExample: "Beispiel: 14s8p, 13s6p, 20s10p",
+    
+        calculate: "Berechnen",
+
+        cellNominalVoltage: "Nennspannung der Zelle",
+        cellCapacityInput: "Zellkapazität",
+        cellMaxCurrent: "Maximaler Zellstrom",
+
+        targetVoltage: "Gewünschte Batteriespannung",
+        targetCapacity: "Gewünschte Batteriekapazität",
+
+        designBattery: "Batterie entwerfen",
+    
+        recommendedConfiguration: "Empfohlene Konfiguration",
+        designedVoltage: "Nennspannung",
+        designedCapacity: "Kapazität",
+        designedEnergy: "Energie",
+        designedCells: "Anzahl der Zellen",
+        designedCurrent: "Maximaler Strom",
+        designedPower: "Theoretische Maximalleistung",
+        designedMinVoltage: "Minimale Spannung",
+        designedMaxVoltage: "Maximale Spannung",
+
+        designerNote:
+            "Die Konfiguration wird so gewählt, dass die tatsächliche Kapazität nicht unter dem gewünschten Wert liegt. Die Spannung wird anhand der nächstgelegenen ganzzahligen Anzahl von Reihenzellen bestimmt.",
+
+        results: "Ergebnisse",
+        batteryEnergy: "Batterieenergie",
+        cellCapacity: "Zellkapazität",
+        cellVoltage: "Zellspannung",
+        minimumVoltage: "Minimale Spannung",
+        maximumVoltage: "Maximale Spannung",
+        totalCells: "Anzahl der Zellen",
+        cellsUnit: "Zellen",
+        maxCurrent: "Maximaler Batteriestrom",
+        runtime: "Laufzeit",
+        atPower: "bei 1000 W",
+
+        howItWorks: "Wie wird berechnet?",
+        energy: "Energie",
+        cellCapacityFormula: "Zellkapazität",
+        totalCellsFormula: "Anzahl der Zellen",
+        maxCurrentFormula: "Maximaler Strom",
+        minimumVoltageFormula: "Minimale Spannung",
+        maximumVoltageFormula: "Maximale Spannung",
+        runtimeFormula: "Laufzeit",
+        designerFormula: "Konfiguration",
+    
+        warning:
+            "Die Berechnungen sind Näherungswerte. Die tatsächliche Batterieleistung hängt unter anderem von Last, Temperatur, Spannungseinbruch, Zellzustand, BMS und weiteren Faktoren ab.",
+
+        footer: "Battery Calculator · Version 1.3.0",
+
+        errorVoltage: "Geben Sie eine gültige Spannung ein.",
+        errorCapacity: "Geben Sie eine gültige Batteriekapazität ein.",
+        errorFormat: "Das Format sollte etwa so aussehen: 14s8p.",
+        errorCells: "Die Anzahl der Zellen muss größer als null sein.",
+        errorDischarge: "Geben Sie einen gültigen maximalen Zellstrom ein.",
+        errorPower: "Geben Sie eine gültige Leistungsaufnahme ein.",
+
+        errorDesignerCellVoltage:
+            "Geben Sie eine gültige Nennspannung der Zelle ein.",
+        errorDesignerCellCapacity:
+            "Geben Sie eine gültige Zellkapazität ein.",
+        errorDesignerCurrent:
+            "Geben Sie einen gültigen maximalen Zellstrom ein.",
+        errorDesignerVoltage:
+            "Geben Sie eine gewünschte Batteriespannung ein.",
+        errorDesignerCapacity:
+            "Geben Sie eine gewünschte Batteriekapazität ein.",
+
+        hour: "Std.",
+        minute: "Min."
+    },
+
+    it: {
+        title: "Calcolatore di batterie",
+        subtitle: "Calcolo e progettazione di pacchi batteria",
+
+        calculatorMode: "Calcolatore di batterie",
+        designerMode: "Progettista di batterie",
+
+        batteryParameters: "Parametri della batteria",
+        designerParameters: "Parametri della batteria da progettare",
+
+        designerDescription:
+            "Inserisci le caratteristiche di una singola cella e i parametri desiderati della batteria. Il calcolatore troverà una configurazione S/P adatta.",
+
+        nominalVoltage: "Tensione nominale",
+        batteryCapacity: "Capacità della batteria",
+        batteryFormat: "Configurazione della batteria",
+        cellChemistry: "Chimica della cella",
+        cellDischarge: "Corrente massima di scarica della cella",
+        powerConsumption: "Potenza assorbita",
+
+        formatExample: "Esempio: 14s8p, 13s6p, 20s10p",
+
+        calculate: "Calcola",
+
+        cellNominalVoltage: "Tensione nominale della cella",
+        cellCapacityInput: "Capacità della cella",
+        cellMaxCurrent: "Corrente massima della cella",
+
+        targetVoltage: "Tensione desiderata della batteria",
+        targetCapacity: "Capacità desiderata della batteria",
+
+        designBattery: "Progetta batteria",
+
+        recommendedConfiguration: "Configurazione consigliata",
+        designedVoltage: "Tensione nominale",
+        designedCapacity: "Capacità",
+        designedEnergy: "Energia",
+        designedCells: "Numero totale di celle",
+        designedCurrent: "Corrente massima",
+        designedPower: "Potenza massima teorica",
+        designedMinVoltage: "Tensione minima",
+        designedMaxVoltage: "Tensione massima",
+
+        designerNote:
+            "La configurazione viene scelta in modo che la capacità effettiva non sia inferiore a quella richiesta. La tensione viene selezionata utilizzando il numero intero di celle in serie più vicino.",
+
+        results: "Risultati",
+        batteryEnergy: "Energia della batteria",
+        cellCapacity: "Capacità della cella",
+        cellVoltage: "Tensione della cella",
+        minimumVoltage: "Tensione minima",
+        maximumVoltage: "Tensione massima",
+        totalCells: "Numero totale di celle",
+        cellsUnit: "celle",
+        maxCurrent: "Corrente massima della batteria",
+        runtime: "Autonomia",
+        atPower: "a 1000 W",
+    
+        howItWorks: "Come viene calcolato?",
+        energy: "Energia",
+        cellCapacityFormula: "Capacità della cella",
+        totalCellsFormula: "Numero di celle",
+        maxCurrentFormula: "Corrente massima",
+        minimumVoltageFormula: "Tensione minima",
+        maximumVoltageFormula: "Tensione massima",
+        runtimeFormula: "Autonomia",
+        designerFormula: "Configurazione",
+
+        warning:
+            "I calcoli sono approssimativi. Le prestazioni reali della batteria dipendono dal carico, dalla temperatura, dalla caduta di tensione, dalle condizioni delle celle, dal BMS e da altri fattori.",
+
+        footer: "Battery Calculator · Versione 1.3.0",
+
+        errorVoltage: "Inserisci una tensione valida.",
+        errorCapacity: "Inserisci una capacità della batteria valida.",
+        errorFormat: "Il formato dovrebbe essere simile a questo: 14s8p.",
+        errorCells: "Il numero di celle deve essere maggiore di zero.",
+        errorDischarge: "Inserisci una corrente massima di scarica della cella valida.",
+        errorPower: "Inserisci una potenza valida.",
+
+        errorDesignerCellVoltage:
+            "Inserisci una tensione nominale della cella valida.",
+        errorDesignerCellCapacity:
+            "Inserisci una capacità della cella valida.",
+        errorDesignerCurrent:
+            "Inserisci una corrente massima della cella valida.",
+        errorDesignerVoltage:
+            "Inserisci una tensione desiderata della batteria.",
+        errorDesignerCapacity:
+            "Inserisci una capacità desiderata della batteria.",
+
+        hour: "h",
+        minute: "min"
     }
 
 };
@@ -556,6 +751,16 @@ function translatePage() {
     enButton.classList.toggle(
         "active",
         currentLanguage === "en"
+    );
+
+    itButton.classList.toggle(
+        "active",
+        currentLanguage === "it"
+    );
+
+    deButton.classList.toggle(
+        "active",
+        currentLanguage === "de"
     );
 
 
@@ -1199,5 +1404,12 @@ powerInput.addEventListener(
     updateRuntimeLabel
 );
 
+itButton.addEventListener("click", () => {
+    setLanguage("it");
+});
+
+deButton.addEventListener("click", () => {
+    setLanguage("de");
+});
 
 translatePage();
